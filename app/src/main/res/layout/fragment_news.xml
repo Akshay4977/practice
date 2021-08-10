@@ -28,6 +28,9 @@
         android:layout_width="match_parent"
         android:id="@+id/empty_news_view"
         android:text="No news available for now"
+        android:textSize="20sp"
+        android:textColor="@color/colorPrimaryDark"
+        android:gravity="center"
         android:visibility="gone"/>
 
 </RelativeLayout>

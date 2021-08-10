@@ -23,4 +23,14 @@
         android:layout_margin="16sp"
         tools:listitem="@layout/book_list_item"/>
 
+    <TextView
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:id="@+id/empty_books_view"
+        android:text="No books available for now"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:textColor="@color/colorPrimaryDark"
+        />
+
 </RelativeLayout>

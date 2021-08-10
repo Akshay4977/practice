@@ -23,7 +23,7 @@ import retrofit2.Response;
 public class BooksFragment extends Fragment implements BooksAdapter.ItemClickListener {
 
     private BooksAdapter booksAdapter;
-    private TextView textViewTotalBook;
+    private TextView textViewTotalBook, emptyBook;
     private RecyclerView recycleView;
     private ApiInterface apiInterface;
 
@@ -37,6 +37,7 @@ public class BooksFragment extends Fragment implements BooksAdapter.ItemClickLis
         View view = inflater.inflate(R.layout.fragment_books, container, false);
         textViewTotalBook = view.findViewById(R.id.total_books);
         recycleView = view.findViewById(R.id.book_recycle_view);
+        emptyBook = view.findViewById(R.id.empty_books_view);
         apiInterface = APIClient.getRetrofitClient().create(ApiInterface.class);
         return view;
     }
@@ -70,12 +71,17 @@ public class BooksFragment extends Fragment implements BooksAdapter.ItemClickLis
     }
 
     private void setData(Book book) {
-        textViewTotalBook.setText("Total books : " + book.getTotalItems());
+        if(book != null) {
+            textViewTotalBook.setText("Total books : " + book.getTotalItems());
 
-        recycleView.setLayoutManager(new LinearLayoutManager(getContext()));
-        booksAdapter = new BooksAdapter(getContext(), book.getItems());
-        booksAdapter.setClickListener(this);
-        recycleView.setAdapter(booksAdapter);
+            recycleView.setLayoutManager(new LinearLayoutManager(getContext()));
+            booksAdapter = new BooksAdapter(getContext(), book.getItems());
+            booksAdapter.setClickListener(this);
+            recycleView.setAdapter(booksAdapter);
+        } else {
+            emptyBook.setVisibility(View.VISIBLE);
+        }
+
     }
 
     @Override
