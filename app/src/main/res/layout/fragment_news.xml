@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="16dp">
+
+    <TextView
+        android:id="@+id/total_news"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_margin="16sp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:id="@+id/news_recycle_view"
+        android:layout_below="@id/total_news"
+        android:layout_marginTop="10dp"
+        android:layout_margin="16sp"
+        tools:listitem="@layout/book_list_item"/>
+
+    <TextView
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:id="@+id/empty_news_view"
+        android:text="No news available for now"
+        android:visibility="gone"/>
+
+</RelativeLayout>
